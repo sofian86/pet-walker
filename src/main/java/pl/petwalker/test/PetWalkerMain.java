@@ -33,7 +33,7 @@ public class PetWalkerMain {
             final Position position = new ObjectMapper().readValue(request.body(), Position.class);
             petWalkerService.registerLocation(request.params(":username"), position);
             response.status(204);
-            return null;
+            return "";
         });
 
         get("/users/:username", (req, res) -> {

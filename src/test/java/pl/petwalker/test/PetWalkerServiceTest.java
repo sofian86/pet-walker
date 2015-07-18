@@ -36,8 +36,8 @@ public class PetWalkerServiceTest {
         assertThat(petWalkerService.getLocations("marek").size(), equalTo(1));
         assertThat(petWalkerService.getLocations("non").size(), equalTo(0));
 
-//        final ObjectWriter objectWriter = new ObjectMapper().writerWithDefaultPrettyPrinter();
-//        System.out.println(objectWriter.writeValueAsString(allUsers));
+        final ObjectWriter objectWriter = new ObjectMapper().writerWithDefaultPrettyPrinter();
+        System.out.println(objectWriter.writeValueAsString(new Position(3.4444, 3.56565)));
 //        System.out.println(objectWriter.writeValueAsString(petWalkerService.getLocations("jurek")));
     }
 
