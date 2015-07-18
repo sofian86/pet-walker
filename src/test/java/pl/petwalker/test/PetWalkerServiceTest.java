@@ -1,14 +1,11 @@
 package pl.petwalker.test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import org.junit.Test;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import pl.petwalker.test.model.Position;
 
 import javax.sql.DataSource;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
@@ -35,10 +32,6 @@ public class PetWalkerServiceTest {
         assertThat(petWalkerService.getLocations("jurek").size(), equalTo(2));
         assertThat(petWalkerService.getLocations("marek").size(), equalTo(1));
         assertThat(petWalkerService.getLocations("non").size(), equalTo(0));
-
-        final ObjectWriter objectWriter = new ObjectMapper().writerWithDefaultPrettyPrinter();
-        System.out.println(objectWriter.writeValueAsString(new Position(3.4444, 3.56565)));
-//        System.out.println(objectWriter.writeValueAsString(petWalkerService.getLocations("jurek")));
     }
 
     private DataSource createDataSource() {
@@ -46,6 +39,5 @@ public class PetWalkerServiceTest {
         .addScript("/sql/create-database.sql")
         .build();
     }
-
 
 }
