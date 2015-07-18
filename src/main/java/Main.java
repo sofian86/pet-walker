@@ -28,7 +28,8 @@ public class Main {
 
         get("/hello", (req, res) -> {
             RelativisticModel.select();
-            final Amount<Mass> m = Amount.valueOf("12 GeV").to(KILOGRAM);
+            final String energy = System.getenv().get("ENERGY");
+            final Amount<Mass> m = Amount.valueOf(energy).to(KILOGRAM);
             return "E=mc^2: 12 GeV = " + m;
         });
 
