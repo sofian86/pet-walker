@@ -16,6 +16,7 @@ import static spark.SparkBase.port;
 import static spark.SparkBase.staticFileLocation;
 
 public class PetWalkerMain {
+
     public static void main(String[] args) throws URISyntaxException, SQLException {
         port(Integer.valueOf(System.getenv("PORT")));
         staticFileLocation("/public");
@@ -27,12 +28,13 @@ public class PetWalkerMain {
 
         final PetWalkerService petWalkerService = new PetWalkerService(dataSource);
 
-        get("/users", (request, response) -> petWalkerService.getAllUsers());
+        final ObjectMapper objectMapper = new ObjectMapper();
+        get("/users", (request, response) -> objectMapper.writeValueAsString(petWalkerService.getAllUsers()));
 
         post("/users/:username", (request, response) -> {
-            final Position position = new ObjectMapper().readValue(request.body(), Position.class);
+            final Position position = objectMapper.readValue(request.body(), Position.class);
             petWalkerService.registerLocation(request.params(":username"), position);
-            response.status(204);
+            response.status(201);
             return "";
         });
 
@@ -42,7 +44,7 @@ public class PetWalkerMain {
                 res.status(404);
                 return "User does not exist";
             }
-            return positions;
+            return objectMapper.writeValueAsString(positions);
         });
     }
 
