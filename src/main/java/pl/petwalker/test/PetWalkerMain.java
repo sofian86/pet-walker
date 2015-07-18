@@ -1,6 +1,7 @@
 package pl.petwalker.test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import org.apache.commons.dbcp.BasicDataSource;
 import pl.petwalker.test.model.Position;
 import pl.petwalker.test.model.UserTrace;
@@ -29,7 +30,8 @@ public class PetWalkerMain {
         final PetWalkerService petWalkerService = new PetWalkerService(dataSource);
 
         final ObjectMapper objectMapper = new ObjectMapper();
-        get("/users", (request, response) -> objectMapper.writeValueAsString(petWalkerService.getAllUsers()));
+        final ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
+        get("/users", (request, response) -> objectWriter.writeValueAsString(petWalkerService.getAllUsers()));
 
         post("/users/:username", (request, response) -> {
             final Position position = objectMapper.readValue(request.body(), Position.class);
@@ -44,7 +46,7 @@ public class PetWalkerMain {
                 res.status(404);
                 return "User does not exist";
             }
-            return objectMapper.writeValueAsString(positions);
+            return objectWriter.writeValueAsString(positions);
         });
     }
 
