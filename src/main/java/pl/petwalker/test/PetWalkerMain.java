@@ -3,6 +3,8 @@ package pl.petwalker.test;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import org.apache.commons.dbcp.BasicDataSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pl.petwalker.test.model.Position;
 import pl.petwalker.test.model.UserTrace;
 
@@ -11,12 +13,15 @@ import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.util.List;
 
+import static org.apache.commons.lang3.Validate.notNull;
 import static spark.Spark.get;
 import static spark.Spark.post;
 import static spark.SparkBase.port;
 import static spark.SparkBase.staticFileLocation;
 
 public class PetWalkerMain {
+
+    private static final Logger LOG = LoggerFactory.getLogger(PetWalkerMain.class);
 
     public static void main(String[] args) throws URISyntaxException, SQLException {
         port(Integer.valueOf(System.getenv("PORT")));
@@ -51,9 +56,15 @@ public class PetWalkerMain {
     }
 
     public static BasicDataSource dataSource(URI dbUri) {
-        String username = dbUri.getUserInfo().split(":")[0];
-        String password = dbUri.getUserInfo().split(":")[1];
+        notNull(dbUri, "dbUri is null");
+
+        final String userInfo = notNull(dbUri.getUserInfo(), "userInfo is null in db uri: %s", dbUri);
+
+        String username = userInfo.split(":")[0];
+        String password = userInfo.split(":")[1];
         String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+
+        LOG.info("Connecting to " + dbUrl);
 
         BasicDataSource basicDataSource = new BasicDataSource();
         basicDataSource.setUrl(dbUrl);
