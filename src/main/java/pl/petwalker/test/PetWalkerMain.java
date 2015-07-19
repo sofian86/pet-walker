@@ -22,6 +22,7 @@ import static spark.SparkBase.staticFileLocation;
 public class PetWalkerMain {
 
     private static final Logger LOG = LoggerFactory.getLogger(PetWalkerMain.class);
+    private static final String CONTENT_TYPE_JSON = "application/json";
 
     public static void main(String[] args) throws URISyntaxException, SQLException {
         port(Integer.valueOf(System.getenv("PORT")));
@@ -36,7 +37,10 @@ public class PetWalkerMain {
 
         final ObjectMapper objectMapper = new ObjectMapper();
         final ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
-        get("/users", (request, response) -> objectWriter.writeValueAsString(petWalkerService.getAllUsers()));
+        get("/users", (request, response) -> {
+            response.type(CONTENT_TYPE_JSON);
+            return objectWriter.writeValueAsString(petWalkerService.getAllUsers());
+        });
 
         post("/users/:username", (request, response) -> {
             final Position position = objectMapper.readValue(request.body(), Position.class);
@@ -45,12 +49,13 @@ public class PetWalkerMain {
             return "";
         });
 
-        get("/users/:username", (req, res) -> {
+        get("/users/:username", (req, response) -> {
             final List<UserTrace> positions = petWalkerService.getLocations(req.params(":username"));
             if (positions.isEmpty()) {
-                res.status(404);
+                response.status(404);
                 return "User does not exist";
             }
+            response.type(CONTENT_TYPE_JSON);
             return objectWriter.writeValueAsString(positions);
         });
     }
