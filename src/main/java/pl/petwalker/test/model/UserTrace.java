@@ -10,6 +10,14 @@ public class UserTrace {
     private Date time;
     private Position position;
 
+    public UserTrace() {
+    }
+
+    public UserTrace(Date time, Position position) {
+        this.time = time;
+        this.position = position;
+    }
+
     public Date getTime() {
         return time;
     }

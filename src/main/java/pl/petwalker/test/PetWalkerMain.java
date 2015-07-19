@@ -44,9 +44,10 @@ public class PetWalkerMain {
 
         post("/users/:username", (request, response) -> {
             final Position position = objectMapper.readValue(request.body(), Position.class);
-            petWalkerService.registerLocation(request.params(":username"), position);
+            final UserTrace result = petWalkerService.registerLocation(request.params(":username"), position);
             response.status(201);
-            return "";
+            response.type(CONTENT_TYPE_JSON);
+            return result;
         });
 
         get("/users/:username", (req, response) -> {
