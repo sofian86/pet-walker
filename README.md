@@ -1,16 +1,14 @@
-# java-getting-started
+# pet-walker
 
-A barebones Java app, which can easily be deployed to Heroku.  
-
-This application support the [Getting Started with Java on Heroku](https://devcenter.heroku.com/articles/getting-started-with-java) article - check it out.
+Ultimate application for planing, tracing and remembering pet walks.
 
 ## Running Locally
 
 Make sure you have Java and Maven installed.  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
 
 ```sh
-$ git clone https://github.com/heroku/java-getting-started.git
-$ cd java-getting-started
+$ git clone https://github.com/bobba-fett/heroku-test.git
+$ cd heroku-test
 $ mvn install
 $ foreman start web
 ```
@@ -30,9 +28,3 @@ $ heroku create
 $ git push heroku master
 $ heroku open
 ```
-
-## Documentation
-
-For more information about using Java on Heroku, see these Dev Center articles:
-
-- [Java on Heroku](https://devcenter.heroku.com/categories/java)
