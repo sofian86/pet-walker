@@ -2,8 +2,8 @@ package pl.petwalker.test;
 
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.jdbc.core.JdbcTemplate;
-import pl.petwalker.dto.Position;
-import pl.petwalker.dto.UserTrace;
+import pl.petwalker.dto.PositionDto;
+import pl.petwalker.dto.UserTraceDto;
 
 import javax.sql.DataSource;
 import java.util.Date;
@@ -25,7 +25,7 @@ public class PetWalkerService {
         });
     }
 
-    public UserTrace registerLocation(String username, Position position) {
+    public UserTraceDto registerLocation(String username, PositionDto position) {
         notEmpty(username, "username cannot be empty");
 
         final Date time = new Date();
@@ -33,18 +33,18 @@ public class PetWalkerService {
         jdbcOperations.update("insert into locations (username, pos_time, latitude, longtitude) "
                 + "values (?, ?, ?, ?)", username, time, position.getLatitude(), position.getLongtitude());
 
-        return new UserTrace(time, position);
+        return new UserTraceDto(time, position);
     }
 
-    public List<UserTrace> getLocations(String username) {
+    public List<UserTraceDto> getLocations(String username) {
         return jdbcOperations.query(
                 "select pos_time, latitude, longtitude from locations where username = ? order by pos_time",
                 new Object[]{username},
                 (resultSet, rowNumber) -> {
-                    final UserTrace result = new UserTrace();
+                    final UserTraceDto result = new UserTraceDto();
                     result.setTime(resultSet.getTimestamp(1));
 
-                    final Position position = new Position();
+                    final PositionDto position = new PositionDto();
                     position.setLatitude(resultSet.getDouble(2));
                     position.setLongtitude(resultSet.getDouble(3));
 

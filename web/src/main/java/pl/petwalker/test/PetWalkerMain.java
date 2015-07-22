@@ -5,8 +5,8 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pl.petwalker.dto.Position;
-import pl.petwalker.dto.UserTrace;
+import pl.petwalker.dto.PositionDto;
+import pl.petwalker.dto.UserTraceDto;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -43,15 +43,15 @@ public class PetWalkerMain {
         });
 
         post("/users/:username", (request, response) -> {
-            final Position position = objectMapper.readValue(request.body(), Position.class);
-            final UserTrace result = petWalkerService.registerLocation(request.params(":username"), position);
+            final PositionDto position = objectMapper.readValue(request.body(), PositionDto.class);
+            final UserTraceDto result = petWalkerService.registerLocation(request.params(":username"), position);
             response.status(201);
             response.type(CONTENT_TYPE_JSON);
             return objectMapper.writeValueAsString(result);
         });
 
         get("/users/:username", (req, response) -> {
-            final List<UserTrace> positions = petWalkerService.getLocations(req.params(":username"));
+            final List<UserTraceDto> positions = petWalkerService.getLocations(req.params(":username"));
             if (positions.isEmpty()) {
                 response.status(404);
                 return "User does not exist";

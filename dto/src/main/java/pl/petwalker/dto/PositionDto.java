@@ -1,13 +1,13 @@
 package pl.petwalker.dto;
 
-public class Position {
+public class PositionDto {
     private double latitude;
     private double longtitude;
 
-    public Position() {
+    public PositionDto() {
     }
 
-    public Position(double latitude, double longtitude) {
+    public PositionDto(double latitude, double longtitude) {
         this.latitude = latitude;
         this.longtitude = longtitude;
     }

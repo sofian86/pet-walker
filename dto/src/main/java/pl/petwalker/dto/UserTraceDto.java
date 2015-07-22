@@ -4,16 +4,16 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
 
-public class UserTrace {
+public class UserTraceDto {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "CEST")
     private Date time;
-    private Position position;
+    private PositionDto position;
 
-    public UserTrace() {
+    public UserTraceDto() {
     }
 
-    public UserTrace(Date time, Position position) {
+    public UserTraceDto(Date time, PositionDto position) {
         this.time = time;
         this.position = position;
     }
@@ -26,11 +26,11 @@ public class UserTrace {
         this.time = time;
     }
 
-    public Position getPosition() {
+    public PositionDto getPosition() {
         return position;
     }
 
-    public void setPosition(Position position) {
+    public void setPosition(PositionDto position) {
         this.position = position;
     }
 }
