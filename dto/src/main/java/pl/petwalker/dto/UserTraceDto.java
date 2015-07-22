@@ -1,10 +1,11 @@
 package pl.petwalker.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
 
 import java.util.Date;
 
-public class UserTraceDto {
+public @Data class UserTraceDto {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "CEST")
     private Date time;
@@ -18,19 +19,4 @@ public class UserTraceDto {
         this.position = position;
     }
 
-    public Date getTime() {
-        return time;
-    }
-
-    public void setTime(Date time) {
-        this.time = time;
-    }
-
-    public PositionDto getPosition() {
-        return position;
-    }
-
-    public void setPosition(PositionDto position) {
-        this.position = position;
-    }
 }

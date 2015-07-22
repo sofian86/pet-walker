@@ -1,6 +1,9 @@
 package pl.petwalker.dto;
 
-public class PositionDto {
+import lombok.Data;
+
+public @Data class PositionDto {
+
     private double latitude;
     private double longtitude;
 
@@ -12,19 +15,4 @@ public class PositionDto {
         this.longtitude = longtitude;
     }
 
-    public double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
-
-    public double getLongtitude() {
-        return longtitude;
-    }
-
-    public void setLongtitude(double longtitude) {
-        this.longtitude = longtitude;
-    }
 }
