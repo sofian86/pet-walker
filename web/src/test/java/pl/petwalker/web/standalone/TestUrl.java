@@ -1,4 +1,4 @@
-package pl.petwalker.test.standalone;
+package pl.petwalker.web.standalone;
 
 public class TestUrl {
     private static final String BASE_URL = "https://glacial-wave-7183.herokuapp.com";

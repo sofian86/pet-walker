@@ -1,4 +1,4 @@
-package pl.petwalker.test;
+package pl.petwalker.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;

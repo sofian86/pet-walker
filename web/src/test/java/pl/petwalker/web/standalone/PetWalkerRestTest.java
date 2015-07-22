@@ -1,4 +1,4 @@
-package pl.petwalker.test.standalone;
+package pl.petwalker.web.standalone;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
@@ -8,7 +8,7 @@ import java.util.Random;
 import static com.jayway.restassured.RestAssured.expect;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.hasItems;
-import static pl.petwalker.test.standalone.TestUrl.url;
+import static pl.petwalker.web.standalone.TestUrl.url;
 
 public class PetWalkerRestTest {
 

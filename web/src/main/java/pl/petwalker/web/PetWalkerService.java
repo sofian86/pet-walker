@@ -1,4 +1,4 @@
-package pl.petwalker.test;
+package pl.petwalker.web;
 
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.jdbc.core.JdbcTemplate;
