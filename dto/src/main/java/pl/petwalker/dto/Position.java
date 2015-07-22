@@ -1,4 +1,4 @@
-package pl.petwalker.test.model;
+package pl.petwalker.dto;
 
 public class Position {
     private double latitude;

@@ -2,8 +2,8 @@ package pl.petwalker.test;
 
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.jdbc.core.JdbcTemplate;
-import pl.petwalker.test.model.Position;
-import pl.petwalker.test.model.UserTrace;
+import pl.petwalker.dto.Position;
+import pl.petwalker.dto.UserTrace;
 
 import javax.sql.DataSource;
 import java.util.Date;

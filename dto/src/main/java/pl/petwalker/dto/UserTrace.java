@@ -1,4 +1,4 @@
-package pl.petwalker.test.model;
+package pl.petwalker.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

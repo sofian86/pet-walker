@@ -5,8 +5,8 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pl.petwalker.test.model.Position;
-import pl.petwalker.test.model.UserTrace;
+import pl.petwalker.dto.Position;
+import pl.petwalker.dto.UserTrace;
 
 import java.net.URI;
 import java.net.URISyntaxException;

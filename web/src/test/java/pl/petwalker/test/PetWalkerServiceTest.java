@@ -3,7 +3,7 @@ package pl.petwalker.test;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.Test;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import pl.petwalker.test.model.Position;
+import pl.petwalker.dto.Position;
 
 import javax.sql.DataSource;
 import java.net.URISyntaxException;
