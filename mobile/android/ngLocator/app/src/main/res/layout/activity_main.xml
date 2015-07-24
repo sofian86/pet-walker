@@ -13,7 +13,7 @@
         <include
             android:id="@+id/toolbar"
             layout="@layout/toolbar" />
-        <fragment android:name="com.ngworks.nglocator.MainActivityFragment"
+        <fragment android:name="com.petwalker.locator.MainActivityFragment"
             android:id="@+id/welcome_fragment"
             android:layout_weight="1"
             android:layout_width="fill_parent"

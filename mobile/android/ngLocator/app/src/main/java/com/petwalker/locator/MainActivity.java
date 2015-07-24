@@ -1,18 +1,26 @@
-package com.ngworks.nglocator;
+package com.petwalker.locator;
 
-import android.app.Activity;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.ngworks.locator.R;
 
-public class MainActivity extends FragmentActivity {
+
+public class MainActivity extends FragmentActivity implements OptionsFragment.OnFragmentInteractionListener, MainActivityFragment.OnFragmentInteractionListener{
+    private final static String TAG = MainActivity.class.toString();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_main);
+        setContentView(R.layout.activity_main);
+        Log.i(TAG, "Create MainActivity");
+        //mainActivityFragment = new MainActivityFragment();
+
     }
 
 
@@ -36,5 +44,10 @@ public class MainActivity extends FragmentActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
