@@ -10,12 +10,12 @@ import dagger.Provides;
 /**
  * Created by TKALISIAK on 2015-07-24.
  */
-@Module
+@Module(complete = false,library=true)
 public class ApplicationModule {
 
     @Provides
     @Singleton
     public AuthenticationManager providesAuthenticationManager() {
-        return new AuthenticationManager();
+        return  AuthenticationManager.getInstance();
     }
 }

@@ -16,7 +16,7 @@ import javax.inject.Inject;
 public class MainActivity extends BaseActivity implements OptionsFragment.OnFragmentInteractionListener, MainActivityFragment.OnFragmentInteractionListener{
     private final static String TAG = MainActivity.class.toString();
 
-    @Inject
+    //@Inject
     AuthenticationManager authenticationManager;
 
     @Override

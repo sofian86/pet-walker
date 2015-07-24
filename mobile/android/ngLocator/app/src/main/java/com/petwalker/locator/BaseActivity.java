@@ -11,6 +11,6 @@ public abstract class BaseActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((Application)getApplication()).getObjectGraph().inject(this);
+        //((Application)getApplication()).getObjectGraph().inject(this);
     }
 }

@@ -8,10 +8,16 @@ import com.petwalker.locator.auth.model.User;
 public class AuthenticationManager {
 
     private boolean signedIn;
-
     private User user;
 
-    public AuthenticationManager() {
+    private static AuthenticationManager  instance;
 
+    public static AuthenticationManager getInstance() {
+        return instance == null ? new AuthenticationManager() : instance;
+    }
+
+    private AuthenticationManager() {
+        signedIn = false;
+        user = new User();
     }
 }
