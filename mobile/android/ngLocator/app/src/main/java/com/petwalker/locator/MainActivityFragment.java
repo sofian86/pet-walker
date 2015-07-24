@@ -12,15 +12,19 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.ngworks.locator.R;
+import com.petwalker.locator.auth.AuthenticationManager;
+
+import javax.inject.Inject;
 
 public class MainActivityFragment extends Fragment {
 
     private static final String TAG = MainActivityFragment.class.toString();
 
     private View view;
-
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
+
+    private boolean active;
 
     public MainActivityFragment() {
     }
@@ -29,6 +33,9 @@ public class MainActivityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         Log.i(TAG, "onCreateView");
+
+        active = true;
+
         view = inflater.inflate(R.layout.fragment_main, container, false);
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();

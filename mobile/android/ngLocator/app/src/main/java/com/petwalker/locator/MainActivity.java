@@ -8,11 +8,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ngworks.locator.R;
+import com.petwalker.locator.auth.AuthenticationManager;
+
+import javax.inject.Inject;
 
 
-public class MainActivity extends FragmentActivity implements OptionsFragment.OnFragmentInteractionListener, MainActivityFragment.OnFragmentInteractionListener{
+public class MainActivity extends BaseActivity implements OptionsFragment.OnFragmentInteractionListener, MainActivityFragment.OnFragmentInteractionListener{
     private final static String TAG = MainActivity.class.toString();
 
+    @Inject
+    AuthenticationManager authenticationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +27,6 @@ public class MainActivity extends FragmentActivity implements OptionsFragment.On
         //mainActivityFragment = new MainActivityFragment();
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -49,5 +53,13 @@ public class MainActivity extends FragmentActivity implements OptionsFragment.On
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    public AuthenticationManager getAuthenticationManager() {
+        return authenticationManager;
+    }
+
+    public void setAuthenticationManager(AuthenticationManager authenticationManager) {
+        this.authenticationManager = authenticationManager;
     }
 }
