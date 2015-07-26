@@ -14,6 +14,7 @@ public class PetWalkerMain {
         final WebAppContext root = new WebAppContext();
 
         root.setContextPath("/");
+        root.setWelcomeFiles(new String[]{"index.html"});
         root.setParentLoaderPriority(true);
 
         final String webappDirLocation = "web/src/main/webapp";
