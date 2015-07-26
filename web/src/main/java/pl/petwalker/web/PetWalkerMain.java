@@ -13,7 +13,6 @@ import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.util.List;
 
-import static org.apache.commons.lang3.Validate.notNull;
 import static spark.Spark.get;
 import static spark.Spark.post;
 import static spark.SparkBase.port;
