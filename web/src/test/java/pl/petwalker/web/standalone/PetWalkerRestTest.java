@@ -3,6 +3,7 @@ package pl.petwalker.web.standalone;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
+import javax.ws.rs.core.MediaType;
 import java.util.Random;
 
 import static com.jayway.restassured.RestAssured.expect;
@@ -45,6 +46,7 @@ public class PetWalkerRestTest {
         expect()
             .statusCode(201)
         .given()
+            .contentType(MediaType.APPLICATION_JSON)
             .body("{\"latitude\": " + randomizeLocation() + ",\"longtitude\": " + randomizeLocation() + "}")
             .log().all()
         .when()

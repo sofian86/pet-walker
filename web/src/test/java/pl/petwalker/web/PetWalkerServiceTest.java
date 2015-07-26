@@ -1,6 +1,5 @@
 package pl.petwalker.web;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.Test;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import pl.petwalker.dto.PositionDto;
@@ -17,7 +16,7 @@ import static org.hamcrest.core.IsCollectionContaining.hasItem;
 public class PetWalkerServiceTest {
 
     @Test
-    public void testCreation() throws URISyntaxException, JsonProcessingException {
+    public void testCreation() throws URISyntaxException {
         final PetWalkerService petWalkerService = new PetWalkerService(createDataSource());
 
         petWalkerService.registerLocation("jurek", new PositionDto(3.4444, 3.56565));
