@@ -31,7 +31,9 @@ public class PetWalkerMain {
         get("/", (req, res) -> "Pet Walker FTW");
 
         final URI databaseUrl = new URI(System.getenv("DATABASE_URL"));
-        final BasicDataSource dataSource = dataSource(databaseUrl);
+        LOG.info("Connecting to " + databaseUrl);
+
+        final BasicDataSource dataSource = DbUtils.dataSource(databaseUrl);
 
         final PetWalkerService petWalkerService = new PetWalkerService(dataSource);
 
@@ -60,25 +62,5 @@ public class PetWalkerMain {
             return objectWriter.writeValueAsString(positions);
         });
     }
-
-    public static BasicDataSource dataSource(URI dbUri) {
-        notNull(dbUri, "dbUri is null");
-
-        final String userInfo = notNull(dbUri.getUserInfo(), "userInfo is null in db uri: %s", dbUri);
-
-        String username = userInfo.split(":")[0];
-        String password = userInfo.split(":")[1];
-        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
-
-        LOG.info("Connecting to " + dbUrl);
-
-        BasicDataSource basicDataSource = new BasicDataSource();
-        basicDataSource.setUrl(dbUrl);
-        basicDataSource.setUsername(username);
-        basicDataSource.setPassword(password);
-
-        return basicDataSource;
-    }
-
 
 }
