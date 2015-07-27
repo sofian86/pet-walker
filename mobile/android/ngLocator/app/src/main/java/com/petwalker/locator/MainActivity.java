@@ -1,7 +1,10 @@
 package com.petwalker.locator;
 
+import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -22,12 +25,15 @@ public class MainActivity extends FragmentActivity implements OptionsFragment.On
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         Injector.INSTANCE.inject(this);
-        setContentView(R.layout.activity_main);
-        Log.i(TAG, "Create MainActivity");
 
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ft.add(R.id.container, new LoginActivityFragment());
+        ft.commit();
+
+        setContentView(R.layout.activity_main);
     }
 
     @Override
