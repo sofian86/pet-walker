@@ -45,3 +45,24 @@ table {
 li {
     border: 1px solid red;
 }
+
+.selected {
+    background-color: lightgreen;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 0.1em 0.5em;
+}
+
+th {
+    background-color: gainsboro;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
