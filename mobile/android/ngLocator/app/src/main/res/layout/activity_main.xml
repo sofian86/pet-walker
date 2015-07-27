@@ -13,12 +13,12 @@
         <include
             android:id="@+id/toolbar"
             layout="@layout/toolbar" />
-        <fragment android:name="com.petwalker.locator.MainActivityFragment"
+        <fragment android:name="com.petwalker.locator.LoginActivityFragment"
             android:id="@+id/welcome_fragment"
             android:layout_weight="1"
             android:layout_width="fill_parent"
             android:layout_height="0dp"
-            tools:layout="@layout/fragment_main" />
+            tools:layout="@layout/fragment_login" />
     </LinearLayout>
 
 

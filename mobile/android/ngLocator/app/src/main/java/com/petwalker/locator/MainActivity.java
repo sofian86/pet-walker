@@ -9,22 +9,24 @@ import android.view.MenuItem;
 
 import com.ngworks.locator.R;
 import com.petwalker.locator.auth.AuthenticationManager;
+import com.petwalker.locator.modules.Injector;
 
 import javax.inject.Inject;
 
 
-public class MainActivity extends BaseActivity implements OptionsFragment.OnFragmentInteractionListener, MainActivityFragment.OnFragmentInteractionListener{
+public class MainActivity extends FragmentActivity implements OptionsFragment.OnOptionsFragmentInteractionListener, LoginActivityFragment.OnLoginFragmentInteractionListener{
     private final static String TAG = MainActivity.class.toString();
 
-    //@Inject
+    @Inject
     AuthenticationManager authenticationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        Injector.INSTANCE.inject(this);
         setContentView(R.layout.activity_main);
         Log.i(TAG, "Create MainActivity");
-        //mainActivityFragment = new MainActivityFragment();
 
     }
 
@@ -51,15 +53,12 @@ public class MainActivity extends BaseActivity implements OptionsFragment.OnFrag
     }
 
     @Override
-    public void onFragmentInteraction(Uri uri) {
+    public void onOptionsFragmentInteraction(Uri uri) {
 
     }
 
-    public AuthenticationManager getAuthenticationManager() {
-        return authenticationManager;
-    }
+    @Override
+    public void onMainFragmentInteraction(Uri uri) {
 
-    public void setAuthenticationManager(AuthenticationManager authenticationManager) {
-        this.authenticationManager = authenticationManager;
     }
 }

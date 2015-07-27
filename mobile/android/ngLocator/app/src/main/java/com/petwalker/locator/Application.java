@@ -1,6 +1,8 @@
 package com.petwalker.locator;
 
 import com.petwalker.locator.modules.ApplicationModule;
+import com.petwalker.locator.modules.Injector;
+import com.petwalker.locator.modules.RootModule;
 
 import dagger.ObjectGraph;
 
@@ -9,22 +11,10 @@ import dagger.ObjectGraph;
  */
 public class Application extends android.app.Application {
 
-    private ObjectGraph objectGraph;
-
-    private static Application instance;
-
-    public Application getInstance() {
-        return instance;
-    }
-
     @Override
     public void onCreate() {
         super.onCreate();
-        instance = this;
-        objectGraph = ObjectGraph.create(new ApplicationModule());
+        Injector.INSTANCE.init(new RootModule());
     }
 
-    public ObjectGraph getObjectGraph() {
-        return objectGraph;
-    }
 }

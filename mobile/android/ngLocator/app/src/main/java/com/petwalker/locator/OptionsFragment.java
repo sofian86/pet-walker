@@ -14,7 +14,7 @@ import com.ngworks.locator.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link OptionsFragment.OnFragmentInteractionListener} interface
+ * {@link OptionsFragment.OnOptionsFragmentInteractionListener} interface
  * to handle interaction events.
  * Use the {@link OptionsFragment#newInstance} factory method to
  * create an instance of this fragment.
@@ -29,7 +29,7 @@ public class OptionsFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private OnFragmentInteractionListener mListener;
+    private OnOptionsFragmentInteractionListener mListener;
 
     /**
      * Use this factory method to create a new instance of
@@ -69,10 +69,9 @@ public class OptionsFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_options, container, false);
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+            mListener.onOptionsFragmentInteraction(uri);
         }
     }
 
@@ -80,10 +79,10 @@ public class OptionsFragment extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            mListener = (OnFragmentInteractionListener) activity;
+            mListener = (OnOptionsFragmentInteractionListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
+                    + " must implement OnOptionsFragmentInteractionListener");
         }
     }
 
@@ -103,9 +102,9 @@ public class OptionsFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnFragmentInteractionListener {
+    public interface OnOptionsFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        void onOptionsFragmentInteraction(Uri uri);
     }
 
 }

@@ -12,13 +12,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.ngworks.locator.R;
-import com.petwalker.locator.auth.AuthenticationManager;
 
-import javax.inject.Inject;
+public class LoginActivityFragment extends Fragment {
 
-public class MainActivityFragment extends Fragment {
-
-    private static final String TAG = MainActivityFragment.class.toString();
+    private static final String TAG = LoginActivityFragment.class.toString();
 
     private View view;
     private FragmentManager fragmentManager;
@@ -26,7 +23,7 @@ public class MainActivityFragment extends Fragment {
 
     private boolean active;
 
-    public MainActivityFragment() {
+    public LoginActivityFragment() {
     }
 
     @Override
@@ -36,10 +33,11 @@ public class MainActivityFragment extends Fragment {
 
         active = true;
 
-        view = inflater.inflate(R.layout.fragment_main, container, false);
+        view = inflater.inflate(R.layout.fragment_login, container, false);
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         Button button = (Button)view.findViewById(R.id.login_btn);
+        final LoginActivityFragment laf = this;
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,17 +45,15 @@ public class MainActivityFragment extends Fragment {
                 if (v.getId() == R.id.login_btn) {
                     OptionsFragment optionsFragment = OptionsFragment.newInstance("Jaja","z majonezem");
                     fragmentTransaction.replace(R.id.welcome_fragment, optionsFragment);
-                    fragmentTransaction.addToBackStack(null);
-
+                    fragmentTransaction.addToBackStack("login");
                     fragmentTransaction.commit();
                 }
             }
         });
         return view;
     }
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+    public interface OnLoginFragmentInteractionListener {
+        void onMainFragmentInteraction(Uri uri);
     }
 
 }

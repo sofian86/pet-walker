@@ -1,5 +1,6 @@
 package com.petwalker.locator.modules;
 
+import com.petwalker.locator.MainActivity;
 import com.petwalker.locator.auth.AuthenticationManager;
 
 import javax.inject.Singleton;
@@ -10,7 +11,7 @@ import dagger.Provides;
 /**
  * Created by TKALISIAK on 2015-07-24.
  */
-@Module(complete = false,library=true)
+@Module(complete = false,library=true, injects = {MainActivity.class})
 public class ApplicationModule {
 
     @Provides
@@ -18,4 +19,6 @@ public class ApplicationModule {
     public AuthenticationManager providesAuthenticationManager() {
         return  AuthenticationManager.getInstance();
     }
+
+
 }
