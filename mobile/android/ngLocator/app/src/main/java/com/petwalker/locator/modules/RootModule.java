@@ -1,7 +1,5 @@
 package com.petwalker.locator.modules;
 
-import com.petwalker.locator.MainActivity;
-
 import dagger.Module;
 
 /**

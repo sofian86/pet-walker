@@ -1,18 +1,18 @@
-package com.petwalker.locator;
+package com.petwalker.locator.view.activities;
 
-import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 import com.ngworks.locator.R;
+import com.petwalker.locator.view.fragments.OptionsFragment;
 import com.petwalker.locator.auth.AuthenticationManager;
 import com.petwalker.locator.modules.Injector;
+import com.petwalker.locator.view.fragments.LoginActivityFragment;
 
 import javax.inject.Inject;
 
@@ -64,7 +64,7 @@ public class MainActivity extends FragmentActivity implements OptionsFragment.On
     }
 
     @Override
-    public void onMainFragmentInteraction(Uri uri) {
-
+    public void onLoginFragmentInteraction(String login) {
+        EditText loginView = (EditText)findViewById(R.id.login);
     }
 }

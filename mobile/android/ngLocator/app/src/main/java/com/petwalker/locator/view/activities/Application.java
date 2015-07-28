@@ -1,4 +1,4 @@
-package com.petwalker.locator;
+package com.petwalker.locator.view.activities;
 
 import com.petwalker.locator.modules.ApplicationModule;
 import com.petwalker.locator.modules.Injector;

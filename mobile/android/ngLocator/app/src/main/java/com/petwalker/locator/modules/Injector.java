@@ -17,7 +17,6 @@ public enum Injector {
         } else {
             objectGraph = objectGraph.plus(rootModule);
         }
-
         // Inject statics
         objectGraph.injectStatics();
 
@@ -29,13 +28,11 @@ public enum Injector {
         inject(target);
     }
 
-    public void inject(final Object target)
-    {
+    public void inject(final Object target) {
         objectGraph.inject(target);
     }
 
-    public <T> T resolve(Class<T> type)
-    {
+    public <T> T resolve(Class<T> type) {
         return objectGraph.get(type);
     }
 }

@@ -64,9 +64,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_gravity="right"
-                android:background="?android:attr/selectableItemBackground"
                 android:text="@string/signin"
-                android:textAppearance="?android:textAppearanceLarge" />
+                android:textColor="@color/button_material_light"
+                android:textAppearance="?android:textAppearanceButton"
+               />
         </LinearLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>

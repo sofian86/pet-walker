@@ -1,0 +1,16 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=F8:E6:0D:DD:91:44:8E:2A:CB:31:00:32:77:19:69:45:50:0C:4B:B5%3Bcom.petwalker.locator.view.activities
+
+    You can also add your credentials to an existing key, using this line:
+    F8:E6:0D:DD:91:44:8E:2A:CB:31:00:32:77:19:69:45:50:0C:4B:B5;com.petwalker.locator.view.activities
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" translatable="false" templateMergeStrategy="preserve">AIzaSyDMtntuHX_UID4F1W_a2gXf9Ec4o7VyiDw</string>
+</resources>

@@ -18,6 +18,9 @@ public class AuthenticationManager {
 
     private AuthenticationManager() {
         signedIn = false;
-        user = new User();
+    }
+
+    public boolean authenticate(User user) {
+        return (user.getPassword().isEmpty() || user.getLogin().isEmpty()) ? false : true;
     }
 }
